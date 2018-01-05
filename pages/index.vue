@@ -2,14 +2,26 @@
   <section class="container">
     <div>
       <div> this is zero nuxt </div>
+      {{ listData }}
     </div>
   </section>
 </template>
 
 <script>
+import axios from '~/plugins/axios.js'
 import Logo from '~/components/Logo.vue'
 
 export default {
+  async asyncData () {
+    let { data } = await axios.get('/api/test')
+    console.log('==========>', data)
+    return { listData: data }
+  },
+  data () {
+    return {
+      listData: ''
+    }
+  },
   components: {
     Logo
   }

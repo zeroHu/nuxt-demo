@@ -21,6 +21,12 @@ module.exports = {
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:8001'
   },
+  modules: [
+    '@nuxtjs/proxy'
+  ],
+  proxy: {
+    '/api': 'http://node.zeroyh.cn'
+  },
   router: {
     base: '/nuxt'
   },
