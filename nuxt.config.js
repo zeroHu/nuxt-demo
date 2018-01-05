@@ -17,6 +17,10 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  dev: (process.env.NODE_ENV !== 'production'),
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:8001'
+  },
   router: {
     base: '/nuxt'
   },
@@ -27,6 +31,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
+    vendor: ['axios'],
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
